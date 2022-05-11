@@ -15,13 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Welcome to Flutter',
 
       home: Scaffold(
-        appBar: AppBar(
-
-          title: const Text('Welcome to Flutter'),
-
-        ),
+        
         body: Center(
 
+          // ignore: avoid_unnecessary_containers
           child: Container(
             
             child: SfRadialGauge(
@@ -32,9 +29,8 @@ class MyApp extends StatelessWidget {
 
                 textStyle: TextStyle(
 
-                  fontSize: 25,
+                  fontSize: 45,
                   fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
                   color: Colors.black,
                   fontFamily: 'Times'
 
@@ -55,7 +51,7 @@ class MyApp extends StatelessWidget {
                   GaugeRange(startValue: 100, endValue: 200, startWidth: 30, endWidth: 30,
                     gradient: const SweepGradient(
                       colors: <Color>[Colors.green,Colors.yellow,Colors.red],
-                      stops: <double>[0.0,0.5,1]                    
+                      stops: <double>[0.0,0.7,1]                    
                     )
                   )
 
@@ -82,11 +78,27 @@ class MyApp extends StatelessWidget {
                   ),
 
                 ],
+              
+              annotations:  <GaugeAnnotation>[
+              
+              GaugeAnnotation(widget: Column(
+                children: const <Widget>[
+
+                  Text('140', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 25),
+                  Text('BPM', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold))
+                
+                ],
+              ),
+              angle: 90, positionFactor: 1.6)
+
+              ],
+              
               )
-              ]
-            )
+            ]
           )
-         )
+        )
+        )
       ),
     );
   }
