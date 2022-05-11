@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
 
                 textStyle: TextStyle(
 
-                  fontSize: 45,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontFamily: 'Times'
@@ -46,8 +46,15 @@ class MyApp extends StatelessWidget {
                 axisLineStyle: const AxisLineStyle(thickness: 30), showTicks: false,
 
                 ranges: <GaugeRange>[
+                  
+                  GaugeRange(startValue: 50, endValue: 75, color: Color.fromARGB(255, 215, 215, 215), startWidth: 30, endWidth: 30),
 
-                  GaugeRange(startValue: 50, endValue: 100, color: Colors.grey, startWidth: 30, endWidth: 30),
+                  GaugeRange(startValue: 75, endValue: 100,  startWidth: 30, endWidth: 30,
+                    gradient: const SweepGradient(
+                      colors: <Color>[Color.fromARGB(255, 215, 215, 215), Colors.green],
+                      stops: <double>[0.3,1]
+                      ),
+                  ),
                   GaugeRange(startValue: 100, endValue: 200, startWidth: 30, endWidth: 30,
                     gradient: const SweepGradient(
                       colors: <Color>[Colors.green,Colors.yellow,Colors.red],
@@ -84,13 +91,13 @@ class MyApp extends StatelessWidget {
               GaugeAnnotation(widget: Column(
                 children: const <Widget>[
 
-                  Text('140', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 25),
-                  Text('BPM', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold))
+                  Text('140', style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 8),
+                  Text('BPM', style: TextStyle(fontSize: 16  , fontWeight: FontWeight.bold))
                 
                 ],
               ),
-              angle: 90, positionFactor: 1.6)
+              angle: 90, positionFactor: 2.6)
 
               ],
               
