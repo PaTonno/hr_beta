@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hr_beta/home.dart';
 
 
 //MISSING ON-PRESSED FUNCTIONS FOR BUTTONS
@@ -30,13 +32,14 @@ class _LoginPageState extends State<LoginPage> {
 
                 Image.asset('assets/menudino.png'),
                 const SizedBox(height: 16.0),
-                const Text('RUN FROM RAPTORS'),
+                Text('RUN FROM THE RAPTORS', style: GoogleFonts.josefinSans()),
                 
               ],
             ),
             
             const SizedBox(height: 120.0),
              TextField(
+               style: GoogleFonts.josefinSans(),
               controller: _usernameController,
               decoration: const InputDecoration(
                 filled: true,
@@ -45,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 12),
              TextField(
+              style: GoogleFonts.josefinSans(),
               controller: _passwordController,
               decoration: const InputDecoration(
                 filled: true,
@@ -60,14 +64,18 @@ class _LoginPageState extends State<LoginPage> {
               TextButton(
                 child: const Text('CANCEL'),
                 onPressed: (){
-
+                  _usernameController.clear();
+                  _passwordController.clear();
                 },
               ),
 
               ElevatedButton(
                 child: const Text('NEXT'),
                 onPressed: (){
-
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+              );
                 },
               )
 
